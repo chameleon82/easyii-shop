@@ -36,4 +36,15 @@ class ArticlesController extends \yii\web\Controller
         ]);
     }
 
+    public function actionTag($slug, $tag = null) {
+        $cat = Article::cat($slug);
+        if(!$cat){
+            throw new \yii\web\NotFoundHttpException('Article category not found.');
+        }
+
+        return $this->render('cat', [
+            'cat' => $cat,
+            'items' => $cat->items(['tags' => $tag, 'pagination' => ['pageSize' => 2]])
+        ]);
+    }
 }

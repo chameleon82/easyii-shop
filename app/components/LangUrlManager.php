@@ -1,5 +1,5 @@
 <?php
-namespace yii\easyii\components;
+namespace app\components;
 
 use yii\web\UrlManager;
 

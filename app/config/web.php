@@ -29,12 +29,24 @@ $config = [
             'class' => 'yii\swiftmailer\Mailer',
         ],
         'urlManager' => [
+            'class' => 'app\components\LangUrlManager',
+            'languages' => ['ru' => 'ru-RU', 'de' => 'de-DE',  'en' => 'en-US'],
             'rules' => [
                 '<controller:\w+>/view/<slug:[\w-]+>' => '<controller>/view',
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                 '<controller:\w+>/cat/<slug:[\w-]+>' => '<controller>/cat',
             ],
         ],
+        // uncomment the following if you want change theme site
+        /*
+        'view' => [
+            'theme' => [
+                'basePath' => '@app/themes/white/web',
+                'pathMap' => [
+                    '@app/views' => '@app/themes/white/views',
+                ],
+            ],
+        ],*/
         'assetManager' => [
             // uncomment the following line if you want to auto update your assets (unix hosting only)
             //'linkAssets' => true,
